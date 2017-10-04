@@ -8,7 +8,11 @@ export class HeroService {
   constructor() { }
 
   getHeroes(): Promise<Hero[]> {
-    return Promise.resolve(HEROES);
+    // return Promise.resolve(HEROES);
+    return new Promise(resolve => {
+      // Simulate server latency with 2 second delay
+      setTimeout(() => resolve(HEROES), 2000);
+    });
   }
 
 }
